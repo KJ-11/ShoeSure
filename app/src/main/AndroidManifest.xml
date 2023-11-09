@@ -16,6 +16,8 @@
             android:name=".authenticityPage"
             android:exported="false" />
         <activity
+            android:name=".ShoeListActivity" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
