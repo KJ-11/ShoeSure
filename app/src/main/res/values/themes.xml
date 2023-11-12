@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="CustomActionBarTitleStyle" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Base.Theme.New" parent="Theme.Material3.DayNight">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:actionBarStyle">@style/CustomActionBarTitleStyle</item>
+    </style>
+
+    <style name="Theme.New" parent="Base.Theme.New" />
+</resources>
