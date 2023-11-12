@@ -1,7 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+
     <style name="Base.Theme.New" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Customize your theme here. -->
+        <!-- <item name="colorPrimary">@color/my_primary</item> -->
+    </style>
+
+    <style name="Base.Theme.ShoeSure" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your ShoeSure theme here. -->
+        <!-- <item name="colorPrimary">@color/my_primary</item> -->
     </style>
 </resources>

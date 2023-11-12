@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+import com.cs407.shoesure.R;
+
 
 public class MainActivity extends AppCompatActivity {
 

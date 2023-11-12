@@ -13,5 +13,9 @@ dependencyResolutionManagement {
     }
 }
 
+
 rootProject.name = "New"
+
+rootProject.name = "ShoeSure"
+
 include ':app'
