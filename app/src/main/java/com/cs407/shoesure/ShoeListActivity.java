@@ -20,7 +20,7 @@ public class ShoeListActivity extends AppCompatActivity {
     }
 
     public void searchClick(View view) {
-        Intent intent = new Intent(this, ShoeListActivity.class);
+        Intent intent = new Intent(this, features.class);
         startActivity(intent);
     }
 }
