@@ -11,6 +11,8 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 
+import java.util.concurrent.TimeUnit;
+
 public class IndividualFeature extends AppCompatActivity {
 
     @Override
@@ -26,13 +28,20 @@ public class IndividualFeature extends AppCompatActivity {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //startActivity(intent);
         //if (intent.resolveActivity(getPackageManager()) != null) {
-            Log.i("Info", "first");
-            startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+
         //}
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            Log.i("Info", "second");
+            Log.i("Info", "Ask For Camera Perms");
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
         }
+        Log.i("Info", "Open Cam");
+        startActivity(intent);
+
+    }
+
+    public void goToFeatures(View view) {
+        Intent goToFeaturesIntent = new Intent(this, features.class);
+        startActivity(goToFeaturesIntent);
     }
 
 }

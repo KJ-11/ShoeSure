@@ -26,4 +26,9 @@ public class features extends AppCompatActivity {
         Intent intent = new Intent(this, authenticityPage.class);
         startActivity(intent);
     }
+
+    public void goIndivFeatures(View view) {
+        Intent intent = new Intent(this, IndividualFeature.class);
+        startActivity(intent);
+    }
 }

@@ -32,4 +32,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/insertimagehere" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goToFeatures"
+        app:srcCompat="@drawable/back_arrow"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="2dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
