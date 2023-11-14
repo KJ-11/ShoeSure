@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:onClick="backHome" />
 
-    <Button
+    <!--<Button
         android:id="@+id/searchButton"
         android:layout_width="239dp"
         android:layout_height="wrap_content"
@@ -37,13 +37,13 @@
         android:layout_marginTop="20dp"
         app:strokeColor="#000000"
         app:strokeWidth="2dp"
-        android:onClick="searchClick"/>
+        android:onClick="shoeClick"/>-->
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchButton"
+        app:layout_constraintTop_toBottomOf="@+id/topHomeButton"
         android:layout_margin="10dp"
         android:fadeScrollbars="true"
         android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb" >
@@ -56,7 +56,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:onClick="shoeClick">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -94,7 +95,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:onClick="shoeClick">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -132,7 +134,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:onClick="shoeClick">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -170,7 +173,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:onClick="shoeClick">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -208,7 +212,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:onClick="shoeClick">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -246,7 +251,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:onClick="shoeClick">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -284,7 +290,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:onClick="shoeClick">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -322,7 +329,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:onClick="shoeClick">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
