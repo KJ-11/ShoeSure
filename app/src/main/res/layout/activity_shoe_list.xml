@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#FFFFFF"
     tools:context=".ShoeListActivity">
 
     <Button
@@ -12,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:backgroundTint="#DFDEDE"
+        android:onClick="backHome"
         android:text="ShoeSure"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -19,8 +21,7 @@
         android:textStyle="bold|italic"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="backHome" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--<Button
         android:id="@+id/searchButton"
@@ -42,11 +43,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topHomeButton"
         android:layout_margin="10dp"
         android:fadeScrollbars="true"
-        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb" >
+        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topHomeButton">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,312 +57,233 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:onClick="shoeClick">
+                android:onClick="shoeClick"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="Shoe Name 1"
-                        android:textSize="20dp"
-                        android:textStyle="bold">
-                    </TextView>
 
                     <TextView
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
                         android:layout_marginLeft="30dp"
-                        android:text="Brand 1"
-                        android:textSize="15dp">
-                    </TextView>
+                        android:layout_marginTop="35dp"
+                        android:text="Air Force 1 Low '07"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Nike"
+                        android:textSize="15dp"></TextView>
                 </LinearLayout>
 
                 <ImageView
                     android:layout_width="115dp"
                     android:layout_height="109dp"
-                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="20dp"
-                    android:src="@mipmap/ic_launcher" />
+                    android:layout_marginTop="15dp"
+                    android:background="#FFFFFF"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/air_force_one" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:onClick="shoeClick">
+                android:onClick="shoeClick"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="Shoe Name 1"
-                        android:textSize="20dp"
-                        android:textStyle="bold">
-                    </TextView>
 
                     <TextView
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
                         android:layout_marginLeft="30dp"
-                        android:text="Brand 1"
-                        android:textSize="15dp">
-                    </TextView>
+                        android:layout_marginTop="35dp"
+                        android:text="Dunk Low Retro"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Nike"
+                        android:textSize="15dp"></TextView>
                 </LinearLayout>
 
                 <ImageView
                     android:layout_width="115dp"
                     android:layout_height="109dp"
-                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="20dp"
-                    android:src="@mipmap/ic_launcher" />
+                    android:layout_marginTop="15dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/dunk_low" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:onClick="shoeClick">
+                android:onClick="shoeClick"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="Shoe Name 1"
-                        android:textSize="20dp"
-                        android:textStyle="bold">
-                    </TextView>
 
                     <TextView
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
                         android:layout_marginLeft="30dp"
-                        android:text="Brand 1"
-                        android:textSize="15dp">
-                    </TextView>
+                        android:layout_marginTop="35dp"
+                        android:text="Air Jordan 1 Dark Mocha"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Nike"
+                        android:textSize="15dp"></TextView>
                 </LinearLayout>
 
                 <ImageView
                     android:layout_width="115dp"
                     android:layout_height="109dp"
-                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="20dp"
-                    android:src="@mipmap/ic_launcher" />
+                    android:layout_marginTop="15dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/mocha" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:onClick="shoeClick">
+                android:onClick="shoeClick"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="Shoe Name 1"
-                        android:textSize="20dp"
-                        android:textStyle="bold">
-                    </TextView>
 
                     <TextView
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
                         android:layout_marginLeft="30dp"
-                        android:text="Brand 1"
-                        android:textSize="15dp">
-                    </TextView>
+                        android:layout_marginTop="35dp"
+                        android:text="Air Jordan 1 Shadow"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Nike"
+                        android:textSize="15dp"></TextView>
                 </LinearLayout>
 
                 <ImageView
                     android:layout_width="115dp"
                     android:layout_height="109dp"
-                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="20dp"
-                    android:src="@mipmap/ic_launcher" />
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/shadow" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:onClick="shoeClick">
+                android:onClick="shoeClick"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="Shoe Name 1"
-                        android:textSize="20dp"
-                        android:textStyle="bold">
-                    </TextView>
 
                     <TextView
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
                         android:layout_marginLeft="30dp"
-                        android:text="Brand 1"
-                        android:textSize="15dp">
-                    </TextView>
+                        android:layout_marginTop="35dp"
+                        android:text="Yeezy Slide Bone"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Adidas"
+                        android:textSize="15dp"></TextView>
                 </LinearLayout>
 
                 <ImageView
                     android:layout_width="115dp"
                     android:layout_height="109dp"
-                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="20dp"
-                    android:src="@mipmap/ic_launcher" />
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/yeezy_slide" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:onClick="shoeClick">
+                android:onClick="shoeClick"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="Shoe Name 1"
-                        android:textSize="20dp"
-                        android:textStyle="bold">
-                    </TextView>
 
                     <TextView
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
                         android:layout_marginLeft="30dp"
-                        android:text="Brand 1"
-                        android:textSize="15dp">
-                    </TextView>
+                        android:layout_marginTop="35dp"
+                        android:text="Yeezy Boost 350 Zebra"
+                        android:textSize="20dp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Adidas"
+                        android:textSize="15dp"></TextView>
                 </LinearLayout>
 
                 <ImageView
                     android:layout_width="115dp"
                     android:layout_height="109dp"
-                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="20dp"
-                    android:src="@mipmap/ic_launcher" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:onClick="shoeClick">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="Shoe Name 1"
-                        android:textSize="20dp"
-                        android:textStyle="bold">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="Brand 1"
-                        android:textSize="15dp">
-                    </TextView>
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="115dp"
-                    android:layout_height="109dp"
                     android:layout_marginTop="15dp"
-                    android:layout_marginLeft="20dp"
-                    android:src="@mipmap/ic_launcher" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:onClick="shoeClick">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="Shoe Name 1"
-                        android:textSize="20dp"
-                        android:textStyle="bold">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="30dp"
-                        android:text="Brand 1"
-                        android:textSize="15dp">
-                    </TextView>
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="115dp"
-                    android:layout_height="109dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="20dp"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@drawable/yeezy_zebra"
+                    android:scaleX="-1" />
 
             </LinearLayout>
 
