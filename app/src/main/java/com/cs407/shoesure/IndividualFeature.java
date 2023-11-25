@@ -14,6 +14,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.hardware.camera2.CameraMetadata;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -74,6 +75,7 @@ public class IndividualFeature extends AppCompatActivity {
             // Display the image in an ImageView or another suitable view
             ImageView imageView = findViewById(R.id.imageView); // Replace with your ImageView ID
             imageView.setImageBitmap(imageBitmap);
+
         }
     }
 
