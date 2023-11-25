@@ -10,30 +10,35 @@
         android:id="@+id/TakePicButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="122dp"
+        android:layout_marginBottom="146dp"
         android:backgroundTint="#DFDFDF"
         android:onClick="openCamera"
         android:text="Take Picture"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.675" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="238dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="107dp"
-        android:layout_marginBottom="125dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="50dp"
+        android:scaleType="fitCenter"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/TakePicButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/insertimagehere" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/BackArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
