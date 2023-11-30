@@ -10,20 +10,37 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-
-import java.util.concurrent.TimeUnit;
+import android.widget.CheckBox;
 
 public class IndividualFeature extends AppCompatActivity {
 
-    @Override
+    private boolean isChecked = false;
+    private String checkboxKey;
+    private CheckBox checkBox;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individual_feature);
+
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("checkbox")) {
+            String featureKey = intent.getStringExtra("checkbox");
+
+            findViewById(R.id.imageView2).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goBackToFeatures(featureKey);
+                }
+            });
+        }
     }
+
+
 
     static final int REQUEST_CAMERA_PERMISSION = 1001;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     public void openCamera(View view){
+        isChecked = true;
 
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //startActivity(intent);
@@ -39,9 +56,25 @@ public class IndividualFeature extends AppCompatActivity {
 
     }
 
-    public void goToFeatures(View view) {
-        Intent goToFeaturesIntent = new Intent(this, features.class);
-        startActivity(goToFeaturesIntent);
+
+
+
+
+
+    public void setIsChecked(boolean isChecked) {
+        this.isChecked = isChecked;
     }
 
+
+
+
+    private void goBackToFeatures(String featureKey) {
+
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("checkboxKey", featureKey);
+        resultIntent.putExtra("checkboxStatus", isChecked);
+        setResult(RESULT_OK, resultIntent);
+        finish();
+    }
 }
+
