@@ -1,5 +1,4 @@
 package com.cs407.shoesure;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -41,6 +40,7 @@ public class IndividualFeature extends AppCompatActivity {
     static final int REQUEST_CAMERA_PERMISSION = 1001;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
+>>>>>>>>> Temporary merge branch 2
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,7 @@ public class IndividualFeature extends AppCompatActivity {
         if (intent != null && intent.hasExtra("checkbox")) {
             String featureKey = intent.getStringExtra("checkbox");
 
-            findViewById(R.id.imageView2).setOnClickListener(new View.OnClickListener() {
+            findViewById(R.id.BackArrow).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     goBackToFeatures(featureKey);
@@ -59,21 +59,32 @@ public class IndividualFeature extends AppCompatActivity {
         }
     }
 
+<<<<<<<<< Temporary merge branch 1
 
-    public void openCamera(View view) {
-        isChecked = true;
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
-        } else {
-            launchCamera();
+=========
+
+
+
+    public void openCamera(View view){
+
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
+            } else {
+                launchCamera();
+            }
         }
-    }
+
+>>>>>>>>> Temporary merge branch 2
+
+
     private void launchCamera() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            isChecked = true;
+            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            }
         }
-    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == REQUEST_CAMERA_PERMISSION) {
@@ -98,9 +109,20 @@ public class IndividualFeature extends AppCompatActivity {
         }
     }
 
+<<<<<<<<< Temporary merge branch 1
+
+=========
+
+
+
+
+
     public void setIsChecked(boolean isChecked) {
         this.isChecked = isChecked;
     }
+
+
+
 
     private void goBackToFeatures(String featureKey) {
 
@@ -109,5 +131,9 @@ public class IndividualFeature extends AppCompatActivity {
         resultIntent.putExtra("checkboxStatus", isChecked);
         setResult(RESULT_OK, resultIntent);
         finish();
+
+
+>>>>>>>>> Temporary merge branch 2
     }
 }
+
