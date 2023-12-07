@@ -29,6 +29,7 @@ public class features extends AppCompatActivity {
 
     public void goIndivFeatures(View view) {
         Intent intent = new Intent(this, IndividualFeature.class);
+        intent.putExtra("feature", "Logo");
         startActivity(intent);
     }
 }
