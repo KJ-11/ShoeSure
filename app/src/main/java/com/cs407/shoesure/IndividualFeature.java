@@ -4,12 +4,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -44,9 +47,9 @@ public class IndividualFeature extends AppCompatActivity {
 
         if (intent != null && intent.hasExtra("checkbox")) {
             String featureKey = intent.getStringExtra("checkbox");
-
             findViewById(R.id.BackArrow).setOnClickListener(v -> goBackToFeatures(featureKey));
         }
+
     }
 
     public void openCamera(View view) {
@@ -139,11 +142,8 @@ public class IndividualFeature extends AppCompatActivity {
         }
     }
 
-
-
     private void goBackToFeatures(String featureKey) {
         testDatabase();
-
 
         Intent resultIntent = new Intent();
         resultIntent.putExtra("checkboxKey", featureKey);
