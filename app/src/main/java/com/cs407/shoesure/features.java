@@ -22,8 +22,6 @@ public class features extends AppCompatActivity {
     private CheckBox checkBoxInsole;
     private static final int INDIV_FEATURE_REQUEST_CODE = 101;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,26 +42,28 @@ public class features extends AppCompatActivity {
         checkBoxEntireShoe.setChecked(false);
         checkBoxInsole.setChecked(false);
 
-        setTextViewClickListener(R.id.textView, "logoChecked");
-        setTextViewClickListener(R.id.textView2, "soleChecked");
-        setTextViewClickListener(R.id.textView3, "boxChecked");
-        setTextViewClickListener(R.id.textView4, "innerLabelChecked");
-        setTextViewClickListener(R.id.textView5, "entireShoeChecked");
-        setTextViewClickListener(R.id.textView6, "insoleChecked");
-
+        setTextViewClickListener(R.id.textView, "logoChecked", "Logo");
+        setTextViewClickListener(R.id.textView2, "soleChecked", "Sole");
+        setTextViewClickListener(R.id.textView3, "boxChecked", "Box");
+        setTextViewClickListener(R.id.textView4, "innerLabelChecked", "Inner Label");
+        setTextViewClickListener(R.id.textView5, "entireShoeChecked", "Wide View");
+        setTextViewClickListener(R.id.textView6, "insoleChecked", "Insole");
     }
-    private void setTextViewClickListener(int textViewId, final String checkboxKey) {
+
+    private void setTextViewClickListener(int textViewId, final String checkboxKey, String featureName) {
         TextView textView = findViewById(textViewId);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToIndividualFeature(checkboxKey);
+                goToIndividualFeature(checkboxKey, featureName);
             }
         });
     }
-    private void goToIndividualFeature(String checkboxKey) {
+
+    private void goToIndividualFeature(String checkboxKey, String featureName) {
         Intent intent = new Intent(this, IndividualFeature.class);
         intent.putExtra("checkbox", checkboxKey);
+        intent.putExtra("feature", featureName);
         startActivityForResult(intent, INDIV_FEATURE_REQUEST_CODE);
     }
 
@@ -78,10 +78,13 @@ public class features extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /*
     public void goIndivFeatures(View view) {
         Intent intent = new Intent(this, IndividualFeature.class);
+        intent.putExtra("feature", "Logo");
         startActivity(intent);
     }
+    */
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
