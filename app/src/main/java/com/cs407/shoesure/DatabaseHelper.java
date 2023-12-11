@@ -33,6 +33,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
 
+
+
     public List<String> getImagePathsFromDatabase() {
         List<String> imagePaths = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
