@@ -72,6 +72,10 @@ public class features extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goBack(View view) {
+        Intent intent = new Intent(this, ShoeListActivity.class);
+        startActivity(intent);
+    }
 
     public void VerifyClick(View view) {
         new DatabaseHelper(this).clearDatabase();

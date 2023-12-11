@@ -8,29 +8,44 @@
     android:background="#FFFFFF"
     tools:context=".ShoeListActivity">
 
+    <Button
+        android:id="@+id/topHomeButton"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:backgroundTint="#DFDEDE"
+        android:onClick="backHome"
+        android:text="ShoeSure"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold|italic"
+        app:cornerRadius="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/BackArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:onClick="goBack"
+        app:srcCompat="@drawable/back_arrow" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <Button
-            android:id="@+id/topHomeButton"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:backgroundTint="#DFDEDE"
-            android:onClick="backHome"
-            android:text="ShoeSure"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            android:textStyle="bold|italic"
-            app:cornerRadius="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginHorizontal="10dp"
             android:fadeScrollbars="true"
             android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
             app:layout_constraintStart_toStartOf="parent"
