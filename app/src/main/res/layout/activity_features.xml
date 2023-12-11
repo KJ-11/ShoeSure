@@ -155,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="40dp"
                         android:onClick="goIndivFeatures"
-                        android:text="Entire Shoe"
+                        android:text="Rear / Back"
                         android:textSize="26sp"
                         android:textStyle="bold"/>
 
@@ -179,7 +179,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="40dp"
                         android:onClick="goIndivFeatures"
-                        android:text="Insole"
+                        android:text="Entire Shoe"
                         android:textSize="26sp"
                         android:textStyle="bold"/>
 
