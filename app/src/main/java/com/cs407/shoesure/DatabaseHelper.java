@@ -32,7 +32,11 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         // Handle database upgrades if needed
     }
 
-
+    public void clearDatabase() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM ShoeImages");
+        db.close();
+    }
 
 
     public List<String> getImagePathsFromDatabase() {

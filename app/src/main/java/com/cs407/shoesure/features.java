@@ -74,6 +74,9 @@ public class features extends AppCompatActivity {
 
 
     public void VerifyClick(View view) {
+        new DatabaseHelper(this).clearDatabase();
+
+
         Intent intent = new Intent(this, authenticityPage.class);
         startActivity(intent);
     }
