@@ -66,6 +66,16 @@ public class features extends AppCompatActivity {
         checkBoxEntireShoe.setChecked(false);
         checkBoxInsole.setChecked(false);
 
+        checkBoxLogo.setEnabled(false);
+        checkBoxSole.setEnabled(false);
+        checkBoxBox.setEnabled(false);
+        checkBoxInnerLabel.setEnabled(false);
+        checkBoxEntireShoe.setEnabled(false);
+        checkBoxInsole.setEnabled(false);
+
+
+
+
 
 
         setTextViewClickListener(R.id.textView, "logoChecked", "Logo");
