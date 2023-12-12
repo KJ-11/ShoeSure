@@ -20,15 +20,15 @@ public class ImageToBuffer {
                 File imgFile = new File(imagePath);
                 if (imgFile.exists()) {
                     bitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-                    bitmap = preprocessImage(bitmap);
-                    bitmap = Bitmap.createScaledBitmap(bitmap, 224, 224, true);
+                    //bitmap = preprocessImage(bitmap);
+                    //bitmap = Bitmap.createScaledBitmap(bitmap, 224, 224, true);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            int imageSize = 224 * 224 * 4 * 3; //bitmap.getRowBytes() * bitmap.getHeight();
-            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(imageSize);
+            //int imageSize = 224 * 224 * 4 * 3; //bitmap.getRowBytes() * bitmap.getHeight();
+            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(602112);
             byteBuffer.order(ByteOrder.nativeOrder());
 
             bitmap.copyPixelsToBuffer(byteBuffer);
@@ -40,6 +40,7 @@ public class ImageToBuffer {
         return byteBufferList;
     }
 
+    /*
     private Bitmap preprocessImage(Bitmap bitmap) {
         // Apply rescale factor
         bitmap = rescaleBitmap(bitmap, 1.0f / 255.0f);
@@ -49,12 +50,15 @@ public class ImageToBuffer {
 
         return bitmap;
     }
+    */
 
+    /*
     private Bitmap rescaleBitmap(Bitmap bitmap, float scale) {
         Matrix matrix = new Matrix();
         matrix.postScale(scale, scale);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
+
 
     private Bitmap applyShearAndZoom(Bitmap bitmap) {
         // Apply shear transformation
@@ -68,4 +72,7 @@ public class ImageToBuffer {
         matrix.postScale(1.0f + 0.2f, 1.0f + 0.2f);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
+
+    */
+
 }

@@ -20,7 +20,7 @@ public class ImageClassifier {
         for (int i = 0; i < modelHelpers.size(); i++) {
             float[][] predictions = new float[1][1];
             modelHelpers.get(i).runInference(inputBuffers.get(i), predictions);
-            Log.i("Model Output", predictions[0][0]+"");
+            //Log.i("Model Output", predictions[0][0]+"");
             Random extraSauce = new Random();
             predictionScoresList.add((float)(extraSauce.nextDouble() * 100));
         }
