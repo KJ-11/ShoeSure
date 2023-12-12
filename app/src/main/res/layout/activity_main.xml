@@ -17,6 +17,7 @@
         android:textColor="#007EB5"
         android:textSize="38dp"
         android:textStyle="bold"
+
         app:layout_constraintBottom_toTopOf="@+id/searchButton"
         app:layout_constraintStart_toStartOf="@+id/searchButton"
         app:layout_constraintTop_toTopOf="parent" />

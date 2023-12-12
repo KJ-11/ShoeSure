@@ -1,5 +1,6 @@
 package com.cs407.shoesure;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,8 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class features extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
@@ -17,6 +20,7 @@ public class features extends AppCompatActivity {
     private CheckBox checkBoxSole;
     private CheckBox checkBoxBox;
     private CheckBox checkBoxEntireShoe;
+    private Button verifyButton;
 
     private CheckBox checkBoxInnerLabel;
     private CheckBox checkBoxInsole;
@@ -34,6 +38,8 @@ public class features extends AppCompatActivity {
         checkBoxInnerLabel = findViewById(R.id.checkBox11);
         checkBoxEntireShoe = findViewById(R.id.checkBox12);
         checkBoxInsole = findViewById(R.id.checkBox13);
+        verifyButton = findViewById(R.id.verifyB);
+
 
         checkBoxLogo.setChecked(false);
         checkBoxSole.setChecked(false);
@@ -42,20 +48,28 @@ public class features extends AppCompatActivity {
         checkBoxEntireShoe.setChecked(false);
         checkBoxInsole.setChecked(false);
 
+
+
         setTextViewClickListener(R.id.textView, "logoChecked", "Logo");
         setTextViewClickListener(R.id.textView2, "soleChecked", "Sole");
         setTextViewClickListener(R.id.textView3, "boxChecked", "Box");
         setTextViewClickListener(R.id.textView4, "innerLabelChecked", "Inner Label");
         setTextViewClickListener(R.id.textView5, "entireShoeChecked", "Wide View");
         setTextViewClickListener(R.id.textView6, "insoleChecked", "Insole");
+
+
     }
+
 
     private void setTextViewClickListener(int textViewId, final String checkboxKey, String featureName) {
         TextView textView = findViewById(textViewId);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 goToIndividualFeature(checkboxKey, featureName);
+
+
             }
         });
     }
@@ -74,29 +88,41 @@ public class features extends AppCompatActivity {
 
 
     public void VerifyClick(View view) {
-        new DatabaseHelper(this).clearDatabase();
 
+        if (!areAllCheckboxesChecked()) {
 
-        Intent intent = new Intent(this, authenticityPage.class);
-        startActivity(intent);
+            Toast.makeText(this, "Please upload all images to check all boxes first", Toast.LENGTH_SHORT).show();
+        } else {
+
+            new DatabaseHelper(this).clearDatabase();
+            Intent intent = new Intent(this, authenticityPage.class);
+            startActivity(intent);
+        }
+    }
+    private boolean areAllCheckboxesChecked() {
+
+        return checkBoxLogo.isChecked() &&
+                checkBoxSole.isChecked() &&
+                checkBoxBox.isChecked() &&
+                checkBoxInnerLabel.isChecked() &&
+                checkBoxEntireShoe.isChecked() &&
+                checkBoxInsole.isChecked();
+
     }
 
-    /*
-    public void goIndivFeatures(View view) {
-        Intent intent = new Intent(this, IndividualFeature.class);
-        intent.putExtra("feature", "Logo");
-        startActivity(intent);
-    }
-    */
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == INDIV_FEATURE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
+
                 String checkboxKey = data.getStringExtra("checkboxKey");
                 boolean isChecked = data.getBooleanExtra("checkboxStatus", false);
                 updateCheckbox(checkboxKey, isChecked);
+
+
             }
         }
     }
