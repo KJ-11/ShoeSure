@@ -115,7 +115,7 @@ public class features extends AppCompatActivity {
             Toast.makeText(this, "Please upload all images to check all boxes first", Toast.LENGTH_SHORT).show();
         } else {
             float averageScore = MLModelDeployment();
-            new DatabaseHelper(this).clearDatabase();
+            //new DatabaseHelper(this).clearDatabase();
             Intent intent = new Intent(this, authenticityPage.class);
             intent.putExtra("score", averageScore);
             startActivity(intent);
@@ -183,18 +183,18 @@ public class features extends AppCompatActivity {
                 do {
                     String imagePath = cursor.getString(cursor.getColumnIndex("image_path"));
                     String feature = cursor.getString(cursor.getColumnIndex("feature"));
-                    Log.i("DB Data", "Image Path: " + imagePath + ", Feature: " + feature);
-                    if (feature == "Logo") {
+                    //Log.i("DB Data", "Image Path: " + imagePath + ", Feature: " + feature);
+                    if (feature.equals("Logo")) {
                         imagePaths.add(0, imagePath);
-                    } if (feature == "Sole") {
+                    } if (feature.equals("Sole")) {
                         imagePaths.add(1, imagePath);
-                    } if (feature == "Box") {
+                    } if (feature.equals("Box")) {
                         imagePaths.add(2, imagePath);
-                    } if (feature == "Inner Label") {
+                    } if (feature.equals("Inner Label")) {
                         imagePaths.add(3, imagePath);
-                    } if (feature == "Wide View") {
+                    } if (feature.equals("Wide View")) {
                         imagePaths.add(4, imagePath);
-                    } if (feature == "Insole") {
+                    } if (feature.equals("Insole")) {
                         imagePaths.add(5, imagePath);
                     }
                 } while (cursor.moveToNext());
@@ -208,11 +208,6 @@ public class features extends AppCompatActivity {
                 cursor.close();
             }
             db.close();
-        }
-
-        if (imagePaths.isEmpty()) {
-            Log.i("DB paths", "error");
-            return 0;
         }
 
         bufferHelper = new ImageToBuffer();
@@ -232,6 +227,7 @@ public class features extends AppCompatActivity {
         float averageScore = imageClassifier.classifyImages(inputBuffers);
         return averageScore;
     }
+
 
     @Override
     protected void onDestroy() {
@@ -255,4 +251,5 @@ public class features extends AppCompatActivity {
             modelHelperBackLogo.close();
         }
     }
+
 }

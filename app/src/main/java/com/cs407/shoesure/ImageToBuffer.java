@@ -25,7 +25,7 @@ public class ImageToBuffer {
             }
 
             int imageSize = bitmap.getRowBytes() * bitmap.getHeight();
-            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(imageSize);
+            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(602112);
             byteBuffer.order(ByteOrder.nativeOrder());
 
             bitmap.copyPixelsToBuffer(byteBuffer);
