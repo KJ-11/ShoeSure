@@ -1,4 +1,6 @@
 package com.cs407.shoesure;
+import android.util.Log;
+
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +19,8 @@ public class ImageClassifier {
         for (int i = 0; i < modelHelpers.size(); i++) {
             float[][] predictions = new float[1][1];
             modelHelpers.get(i).runInference(inputBuffers.get(i), predictions);
-            predictionScoresList.add(predictions[0][0]);
+            Log.i("Model Output", predictions[0][0]+"");
+            predictionScoresList.add(predictions[0][0]*100);
         }
 
         float sum = 0.0f;
