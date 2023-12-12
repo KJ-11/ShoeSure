@@ -120,7 +120,7 @@ public class features extends AppCompatActivity {
             Toast.makeText(this, "Please upload all images to check all boxes first", Toast.LENGTH_SHORT).show();
         } else {
             float averageScore = MLModelDeployment();
-            new DatabaseHelper(this).clearDatabase();
+            //new DatabaseHelper(this).clearDatabase();
             Intent intent = new Intent(this, authenticityPage.class);
             intent.putExtra("score", averageScore);
             startActivity(intent);

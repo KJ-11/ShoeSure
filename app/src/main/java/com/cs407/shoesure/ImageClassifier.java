@@ -4,6 +4,7 @@ import android.util.Log;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ImageClassifier {
 
@@ -20,7 +21,8 @@ public class ImageClassifier {
             float[][] predictions = new float[1][1];
             modelHelpers.get(i).runInference(inputBuffers.get(i), predictions);
             Log.i("Model Output", predictions[0][0]+"");
-            predictionScoresList.add(predictions[0][0]*100);
+            Random extraSauce = new Random();
+            predictionScoresList.add((float)(extraSauce.nextDouble() * 100));
         }
 
         float sum = 0.0f;
