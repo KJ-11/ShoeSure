@@ -183,7 +183,6 @@ public class features extends AppCompatActivity {
                 do {
                     String imagePath = cursor.getString(cursor.getColumnIndex("image_path"));
                     String feature = cursor.getString(cursor.getColumnIndex("feature"));
-                    //Log.i("DB Data", "Image Path: " + imagePath + ", Feature: " + feature);
                     if (feature.equals("Logo")) {
                         imagePaths.add(0, imagePath);
                     } if (feature.equals("Sole")) {
@@ -251,5 +250,4 @@ public class features extends AppCompatActivity {
             modelHelperBackLogo.close();
         }
     }
-
 }
