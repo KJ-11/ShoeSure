@@ -49,7 +49,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             if (cursor != null && cursor.moveToFirst()) {
                 do {
                     String imagePath = cursor.getString(cursor.getColumnIndex("image_path"));
-                    imagePaths.add(imagePath);
                 } while (cursor.moveToNext());
             }
         } catch (Exception e) {
@@ -64,5 +63,3 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return imagePaths;
     }
 }
-
-

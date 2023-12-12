@@ -3,9 +3,13 @@ package com.cs407.shoesure;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -13,6 +17,11 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class features extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
@@ -25,6 +34,15 @@ public class features extends AppCompatActivity {
     private CheckBox checkBoxInnerLabel;
     private CheckBox checkBoxInsole;
     private static final int INDIV_FEATURE_REQUEST_CODE = 101;
+
+    // ML Model Variables
+    private ImageToBuffer bufferHelper;
+    private MLModelHelper modelHelperLabel;
+    private MLModelHelper modelHelperSole;
+    private MLModelHelper modelHelperBox;
+    private MLModelHelper modelHelperShoe;
+    private MLModelHelper modelHelperInnerLabel;
+    private MLModelHelper modelHelperBackLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,12 +112,12 @@ public class features extends AppCompatActivity {
     public void VerifyClick(View view) {
 
         if (!areAllCheckboxesChecked()) {
-
             Toast.makeText(this, "Please upload all images to check all boxes first", Toast.LENGTH_SHORT).show();
         } else {
-
+            float averageScore = MLModelDeployment();
             new DatabaseHelper(this).clearDatabase();
             Intent intent = new Intent(this, authenticityPage.class);
+            intent.putExtra("score", averageScore);
             startActivity(intent);
         }
     }
@@ -125,8 +143,6 @@ public class features extends AppCompatActivity {
                 String checkboxKey = data.getStringExtra("checkboxKey");
                 boolean isChecked = data.getBooleanExtra("checkboxStatus", false);
                 updateCheckbox(checkboxKey, isChecked);
-
-
             }
         }
     }
@@ -152,6 +168,91 @@ public class features extends AppCompatActivity {
                 checkBoxInsole.setChecked(isChecked);
                 break;
 
+        }
+    }
+
+    public float MLModelDeployment() {
+        List<String> imagePaths = new ArrayList<>();
+
+        SQLiteDatabase db = new DatabaseHelper(this).getReadableDatabase();
+        Cursor cursor = null;
+        try {
+            cursor = db.rawQuery("SELECT * FROM ShoeImages", null);
+
+            if (cursor != null && cursor.moveToFirst()) {
+                do {
+                    String imagePath = cursor.getString(cursor.getColumnIndex("image_path"));
+                    String feature = cursor.getString(cursor.getColumnIndex("feature"));
+                    Log.i("DB Data", "Image Path: " + imagePath + ", Feature: " + feature);
+                    if (feature == "Logo") {
+                        imagePaths.add(0, imagePath);
+                    } if (feature == "Sole") {
+                        imagePaths.add(1, imagePath);
+                    } if (feature == "Box") {
+                        imagePaths.add(2, imagePath);
+                    } if (feature == "Inner Label") {
+                        imagePaths.add(3, imagePath);
+                    } if (feature == "Wide View") {
+                        imagePaths.add(4, imagePath);
+                    } if (feature == "Insole") {
+                        imagePaths.add(5, imagePath);
+                    }
+                } while (cursor.moveToNext());
+            } else {
+                Log.i("DB Error", "No data in the database");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+
+        if (imagePaths.isEmpty()) {
+            Log.i("DB paths", "error");
+            return 0;
+        }
+
+        bufferHelper = new ImageToBuffer();
+        List<ByteBuffer> inputBuffers = bufferHelper.loadImageAsByteBuffer(imagePaths);
+
+        modelHelperLabel = new MLModelHelper(this, "model_label.tflite");
+        modelHelperSole = new MLModelHelper(this, "model_sole.tflite");
+        modelHelperBox = new MLModelHelper(this, "model_box.tflite");
+        modelHelperShoe = new MLModelHelper(this, "model_shoe.tflite");
+        modelHelperInnerLabel = new MLModelHelper(this, "model_inner_label.tflite");
+        modelHelperBackLogo = new MLModelHelper(this, "model_back_logo.tflite");
+
+        ImageClassifier imageClassifier = new ImageClassifier(Arrays.asList(modelHelperLabel,
+                modelHelperSole, modelHelperBox, modelHelperShoe, modelHelperInnerLabel,
+                modelHelperBackLogo));
+
+        float averageScore = imageClassifier.classifyImages(inputBuffers);
+        return averageScore;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (modelHelperLabel != null) {
+            modelHelperLabel.close();
+        }
+        if (modelHelperSole != null) {
+            modelHelperSole.close();
+        }
+        if (modelHelperBox != null) {
+            modelHelperBox.close();
+        }
+        if (modelHelperShoe != null) {
+            modelHelperShoe.close();
+        }
+        if (modelHelperInnerLabel != null) {
+            modelHelperInnerLabel.close();
+        }
+        if (modelHelperBackLogo != null) {
+            modelHelperBackLogo.close();
         }
     }
 }
